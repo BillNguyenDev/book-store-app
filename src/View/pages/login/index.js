@@ -20,7 +20,7 @@ export default class Login extends Component {
                     if (doc.data().email === _data.email) {
 
                         if (doc.data().password === _data.password) {
-                            let token = jwt.sign({ usersId: doc.id,usersName:doc.data().user_name }, 'shhhhh');
+                            let token = jwt.sign({ usersId: doc.id,usersName:doc.data().user_name },  process.env.REACT_APP_TOKEN);
                             localStorage.setItem('token', token);
                             this.props.history.push("/");
                             return;

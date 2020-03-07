@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import express from 'express';
+require('dotenv').config();
+
+console.log(process.env);
+// console.log(global.process.env)
 // import "bootstrap/less/bootstrap.less";
 // import firebase from './Model/config';
 // import data from './data/db.json';
