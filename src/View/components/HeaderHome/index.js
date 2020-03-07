@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import {
     Collapse,
     Navbar,
@@ -10,9 +10,9 @@ import {
     NavLink,
     Button
 } from "reactstrap";
-import { Link, Redirect, useHistory, Route, Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-let islogout = false;
+
 
 const HeaderHome = props => {
     const [isOpen, setIsOpen] = useState(false);
