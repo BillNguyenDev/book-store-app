@@ -7,12 +7,12 @@ const isAuth = () => {
     if (localStorage.getItem('token') !== null) {
         let token = localStorage.getItem('token');
         try {
-         var decoded = jwt.verify(token, 'shhhhh');
+            jwt.verify(token, 'shhhhh');
             return true;
-          } catch(err) {
+        } catch (err) {
             // err
             return false;
-          }
+        }
     }
     return false;
 };
@@ -23,7 +23,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
             {...rest}
             render={props =>
                 isAuth() ? (
-                    <Component {...props} users = {jwt.verify(localStorage.getItem('token'), 'shhhhh').usersId}/>
+                    <Component {...props} users={jwt.verify(localStorage.getItem('token'), 'shhhhh').usersName} />
                 ) : (
                         <Redirect
                             to={{

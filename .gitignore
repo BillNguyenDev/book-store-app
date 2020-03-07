@@ -6,9 +6,10 @@
 .pnp.js
 /Model
 /data
-/.firebase
+./firebase
 # testing
 /coverage
+/.firebase/hosting.YnVpbGQ.cache
 
 # production
 /build

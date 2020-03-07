@@ -20,11 +20,9 @@ export default class Login extends Component {
                     if (doc.data().email === _data.email) {
 
                         if (doc.data().password === _data.password) {
-                            let token = jwt.sign({ usersId: doc.id }, 'shhhhh');
+                            let token = jwt.sign({ usersId: doc.id,usersName:doc.data().user_name }, 'shhhhh');
                             localStorage.setItem('token', token);
                             this.props.history.push("/");
-                            //them cookie
-
                             return;
                         } else {
                             this.setState({ message: "Mật khẩu không đúng vùi lòng nhập lại!" });

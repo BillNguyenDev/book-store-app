@@ -8,7 +8,10 @@ import {
     NavItem,
     UncontrolledDropdown,
     NavLink,
-    Button
+    InputGroupButtonDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
 } from "reactstrap";
 import { Link } from 'react-router-dom';
 
@@ -16,8 +19,11 @@ import { Link } from 'react-router-dom';
 
 const HeaderHome = props => {
     const [isOpen, setIsOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
+    const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
+
     console.log(props);
     return (
         <Navbar color="light" light expand="md">
@@ -38,12 +44,14 @@ const HeaderHome = props => {
 
                     <UncontrolledDropdown nav inNavbar />
                 </Nav>
-                <Nav>
-
-                    <NavItem className="pull-right">
-                        <p>{props.users}</p>
-                        <Button color="primary" block onClick={logout}
-                        > Đăng Xuất </Button>
+                <Nav className="pull-right">
+                    <NavItem>
+                        <InputGroupButtonDropdown addonType="append" isOpen={dropdownOpen} toggle={toggleDropDown}>
+                            <DropdownToggle color="info" caret>{props.users}</DropdownToggle>
+                            <DropdownMenu color="info">
+                                <DropdownItem heade color="info" block onClick={logout}> Đăng Xuất </DropdownItem>
+                            </DropdownMenu>
+                        </InputGroupButtonDropdown>
                     </NavItem>
                 </Nav>
             </Collapse>
