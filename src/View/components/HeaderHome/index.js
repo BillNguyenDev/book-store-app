@@ -18,7 +18,7 @@ const HeaderHome = props => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
-
+    console.log(props);
     return (
         <Navbar color="light" light expand="md">
             <NavbarBrand href="/">Book Store</NavbarBrand>
@@ -39,7 +39,9 @@ const HeaderHome = props => {
                     <UncontrolledDropdown nav inNavbar />
                 </Nav>
                 <Nav>
+
                     <NavItem className="pull-right">
+                        <p>{props.users}</p>
                         <Button color="primary" block onClick={logout}
                         > Đăng Xuất </Button>
                     </NavItem>

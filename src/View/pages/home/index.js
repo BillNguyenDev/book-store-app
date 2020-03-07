@@ -10,7 +10,7 @@ import ListBook from '../listBook';
 const Home = props => {
     return (
         <Router>
-            <HeaderHome/>
+            <HeaderHome users={props.users}/>
             <Switch>
                 <Route exact path="/about">
                     <About />

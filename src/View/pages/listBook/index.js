@@ -33,7 +33,7 @@ export default class ListBook extends Component {
     }
 
     handlePageChange(pageNumber) {
-        console.log(`active page is ${pageNumber}`);
+        // console.log(`active page is ${pageNumber}`);
         this.setState({ activePage: pageNumber });
         _from = (pageNumber - 1) * 9;
         _to = pageNumber * 9;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
-
+import jwt from 'jsonwebtoken';
 import Header from '../../components/HeaderLogin'
 import firebase from '../../../Model/config';
 
@@ -20,11 +20,11 @@ export default class Login extends Component {
                     if (doc.data().email === _data.email) {
 
                         if (doc.data().password === _data.password) {
-                            let token = true;
+                            let token = jwt.sign({ usersId: doc.id }, 'shhhhh');
                             localStorage.setItem('token', token);
                             this.props.history.push("/");
                             //them cookie
-                            
+
                             return;
                         } else {
                             this.setState({ message: "Mật khẩu không đúng vùi lòng nhập lại!" });
@@ -45,7 +45,7 @@ export default class Login extends Component {
     render() {
         return (
             <div className="col-md-6">
-                <Header title="Bill Nguyen Book Store" />
+                <Header title="Bill Nguyen Book Store" users={this.props.users}/>
                 <hr className="my-3" />
                 {
                     this.state.message !== '' ? (
