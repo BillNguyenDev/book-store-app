@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import jwt from 'jsonwebtoken';
+import md5 from 'md5';
+
 import Header from '../../components/HeaderLogin'
 import firebase from '../../../Model/config';
+
+
 
 export default class Login extends Component {
 
@@ -18,8 +22,8 @@ export default class Login extends Component {
             .then((snapshot) => {
                 snapshot.forEach((doc) => {
                     if (doc.data().email === _data.email) {
-
-                        if (doc.data().password === _data.password) {
+                        // console.log(md5(_data.password));
+                        if (doc.data().password === md5(_data.password)) {
                             let token = jwt.sign({ usersId: doc.id,usersName:doc.data().user_name },  process.env.REACT_APP_TOKEN);
                             localStorage.setItem('token', token);
                             this.props.history.push("/");

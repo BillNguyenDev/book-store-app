@@ -12,6 +12,7 @@
         "express": "^4.17.1",
         "firebase": "^7.10.0",
         "jsonwebtoken": "^8.5.1",
+        "md5": "^2.2.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
         "react-js-pagination": "^3.0.3",

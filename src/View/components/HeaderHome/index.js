@@ -24,7 +24,6 @@ const HeaderHome = props => {
     const toggle = () => setIsOpen(!isOpen);
     const toggleDropDown = () => setDropdownOpen(!dropdownOpen);
 
-    console.log(props);
     return (
         <Navbar color="light" light expand="md">
             <NavbarBrand href="/">Book Store</NavbarBrand>
@@ -63,6 +62,6 @@ const HeaderHome = props => {
 function logout() {
     localStorage.removeItem('token');
     window.location.reload();
-    console.log('xong');
+    // console.log('xong');
 }
 export default HeaderHome;
